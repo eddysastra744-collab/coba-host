@@ -1,0 +1,359 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #ffcce6 0%, #ff99cc 100%);
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.floating-sparkles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1;
+}
+
+.sparkle {
+  position: fixed;
+  font-size: 12px;
+  color: #fff;
+  opacity: 0.8;
+  animation: sparkle-fade 1.5s ease-out forwards;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes sparkle-fade {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.moving-clouds {
+  position: absolute;
+  top: 10%;
+  left: -30%;
+  width: 160%;
+  height: 150px;
+  background: url("https://i.ibb.co/7QpKsCX/clouds.png") repeat-x;
+  background-size: contain;
+  opacity: 0.15;
+  animation: moveClouds 60s linear infinite;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+@keyframes moveClouds {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+.main-title {
+  font-family: "Dancing Script", cursive;
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(255, 105, 180, 0.8);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInTitle 3s ease forwards;
+  z-index: 10;
+  user-select: none;
+}
+
+@keyframes fadeInTitle {
+  to {
+    opacity: 1;
+  }
+}
+
+.balloon-container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: visible;
+  z-index: 5;
+}
+
+.heart-balloon {
+  position: absolute;
+  cursor: pointer;
+  filter: drop-shadow(0 6px 8px rgba(255, 105, 180, 0.4));
+  animation: float 6s ease-in-out infinite;
+  transform-origin: center bottom;
+  user-select: none;
+  transition: filter 0.3s ease;
+  will-change: transform;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(5deg);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+  20%,
+  60% {
+    transform: translate(-5px, 0) rotate(-5deg);
+  }
+  40%,
+  80% {
+    transform: translate(5px, 0) rotate(5deg);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.heart {
+  width: 60px;
+  height: 54px;
+  position: relative;
+  transform: rotate(-45deg);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 15px 15px 0 0;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  width: 30px;
+  height: 48px;
+  position: absolute;
+  left: 30px;
+  top: 0;
+  background: inherit;
+  border-radius: 30px 30px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.heart-balloon.pink {
+  background: #ff66b3;
+}
+.heart-balloon.lavender {
+  background: #cc99ff;
+}
+.heart-balloon.peach {
+  background: #ffb399;
+}
+.heart-balloon.mint {
+  background: #99ffcc;
+}
+.heart-balloon.white {
+  background: #ffffff;
+}
+
+.heart-balloon.small .heart {
+  width: 50px;
+  height: 45px;
+}
+
+.heart-balloon.small .heart:before,
+.heart-balloon.small .heart:after {
+  width: 25px;
+  height: 40px;
+}
+
+.heart-balloon.large .heart {
+  width: 80px;
+  height: 72px;
+}
+
+.heart-balloon.large .heart:before,
+.heart-balloon.large .heart:after {
+  width: 40px;
+  height: 64px;
+}
+
+.background-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-heart {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 20px;
+  animation: floatBg 10s linear infinite;
+}
+
+@keyframes floatBg {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.message-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #fff 0%, #ffe6f2 100%);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+  max-width: 400px;
+  width: 90%;
+  font-family: "Dancing Script", cursive;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ff66b3;
+  user-select: none;
+}
+
+.close-btn:hover {
+  color: #cc99ff;
+}
+
+#loveMessage {
+  font-size: 1.5rem;
+  color: #ff66b3;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+.heart-animation {
+  font-size: 2rem;
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1500;
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .heart-balloon.large .heart {
+    width: 60px;
+    height: 54px;
+  }
+
+  .heart-balloon.large .heart:before,
+  .heart-balloon.large .heart:after {
+    width: 30px;
+    height: 48px;
+  }
+}

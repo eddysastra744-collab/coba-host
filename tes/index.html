@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sayang - Balon Hati Romantis</title>
+    <link rel="stylesheet" href="sayang.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Background elements -->
+      <div class="background-elements">
+        <div class="floating-sparkles"></div>
+        <div class="moving-clouds"></div>
+        <div class="background-hearts"></div>
+      </div>
+
+      <!-- Main title -->
+      <h1 class="main-title">Untuk Kamu, Sayang 💕</h1>
+
+      <!-- Balloon container -->
+      <div class="balloon-container" id="balloonContainer">
+        <!-- Balon akan di-generate oleh JavaScript -->
+      </div>
+
+      <!-- Message popup -->
+      <div class="message-popup" id="messagePopup">
+        <div class="popup-content">
+          <span class="close-btn" onclick="closePopup()">&times;</span>
+          <div class="love-icon">💝</div>
+          <p id="loveMessage"></p>
+          <div class="heart-animation"></div>
+        </div>
+      </div>
+
+      <!-- Confetti container -->
+      <div class="confetti-container" id="confettiContainer"></div>
+    </div>
+
+    <!-- Audio elements -->
+    <audio id="popSound" preload="auto">
+      <source
+        src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmFgU7k9n1unEiBC13yO/eizEIHWq+8+OWT"
+        type="audio/wav"
+      />
+    </audio>
+    <audio id="bgMusic" loop preload="auto">
+      <source
+        src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav"
+        type="audio/wav"
+      />
+    </audio>
+
+    <script src="sayang.js"></script>
+  </body>
+</html>
